@@ -19,7 +19,7 @@ class OnBoardingController extends GetxController {
 
   void nextPage() {
     if (currentIndex.value == 2) {
-      Get.to(const LoginPage());
+      Get.offAll(const LoginPage());
     } else {
       int pageNumber = currentIndex.value + 1;
       pageController.animateToPage(pageNumber,
