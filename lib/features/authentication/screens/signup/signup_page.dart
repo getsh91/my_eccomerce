@@ -27,7 +27,10 @@ class SignupPage extends StatelessWidget {
               const SizedBox(height: ISizes.spaceBtwSections),
               IFormDivider(dividerText: ITexts.orSignUpWith.capitalize!),
               const SizedBox(height: ISizes.spaceBtwSections),
-              const ISocialButtons()
+              const ISocialButtons(),
+              Text(
+                  "By signing up you agree to our Terms of Use and Privacy Policy",
+                  style: Theme.of(context).textTheme.bodySmall)
             ]),
           ),
         ));
