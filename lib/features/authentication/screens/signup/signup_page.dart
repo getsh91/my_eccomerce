@@ -12,10 +12,7 @@ class SignupPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          leading:
-              IconButton(onPressed: () {}, icon: const Icon(Icons.arrow_back)),
-        ),
+        appBar: AppBar(),
         body: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.all(ISizes.defaultSpace),
