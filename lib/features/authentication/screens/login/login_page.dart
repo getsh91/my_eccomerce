@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_utils/get_utils.dart';
 import 'package:t_store/common/styles/spacing_styles.dart';
-import 'package:t_store/common/widgets_login_sinup/Form_divider.dart';
-import 'package:t_store/common/widgets_login_sinup/social_buttons.dart';
+import 'package:t_store/common/widgets/login_signup/form_divider.dart';
+import 'package:t_store/common/widgets/login_signup/social_buttons.dart';
 import 'package:t_store/features/authentication/screens/login/widgets/login_form.dart';
 import 'package:t_store/features/authentication/screens/login/widgets/login_header.dart';
 import 'package:t_store/utils/constants/sizes.dart';
@@ -23,7 +23,7 @@ class LoginPage extends StatelessWidget {
             const ILoginForm(),
             IFormDivider(dividerText: ITexts.orSignInWith.capitalize!),
             const SizedBox(height: ISizes.spaceBtwItems),
-            const ISocialButtons(),
+            const ISocialButtons()
           ],
         ),
       ),

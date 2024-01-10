@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:t_store/common/widgets_login_sinup/success_screen/success_screen.dart';
+import 'package:t_store/common/widgets/success_screen/success_screen.dart';
 import 'package:t_store/features/authentication/screens/login/login_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:t_store/utils/constants/sizes.dart';

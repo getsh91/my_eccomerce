@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:t_store/bottom_navigation.dart';
 import 'package:t_store/features/authentication/screens/password_configuration/forget_password.dart';
 import 'package:t_store/features/authentication/screens/signup/signup_page.dart';
 import 'package:t_store/utils/constants/sizes.dart';
@@ -51,7 +52,10 @@ class ILoginForm extends StatelessWidget {
           SizedBox(
             width: double.infinity,
             child: ElevatedButton(
-                onPressed: () {}, child: const Text(ITexts.signIn)),
+                onPressed: () {
+                  Get.to(() => const BottomNavigation());
+                },
+                child: const Text(ITexts.signIn)),
           ),
           const SizedBox(height: ISizes.spaceBtwItems),
           SizedBox(

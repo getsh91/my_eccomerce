@@ -25,20 +25,19 @@ class TermsAndConditionCheckbox extends StatelessWidget {
         const SizedBox(width: ISizes.spaceBtwItems),
         Text.rich(TextSpan(children: [
           TextSpan(
-              text: '${ITexts.iAgreeTo}',
+              text: ITexts.iAgreeTo,
               style: Theme.of(context).textTheme.bodySmall),
           TextSpan(
-              text: '${ITexts.privacyPolicy}',
+              text: ITexts.privacyPolicy,
               style: Theme.of(context).textTheme.bodyMedium!.apply(
                     color: dark ? IColors.white : IColors.primary,
                     decoration: TextDecoration.underline,
                     decorationColor: dark ? IColors.white : IColors.primary,
                   )),
           TextSpan(
-              text: '${ITexts.and}',
-              style: Theme.of(context).textTheme.bodySmall),
+              text: ITexts.and, style: Theme.of(context).textTheme.bodySmall),
           TextSpan(
-              text: '${ITexts.termsOfUse}',
+              text: ITexts.termsOfUse,
               style: Theme.of(context).textTheme.bodyMedium!.apply(
                     color: dark ? IColors.white : IColors.primary,
                     decoration: TextDecoration.underline,
