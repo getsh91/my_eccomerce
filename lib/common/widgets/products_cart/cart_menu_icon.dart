@@ -21,14 +21,14 @@ class ICartCounterIcon extends StatelessWidget {
         Positioned(
             right: 0,
             child: Container(
-              width: 10,
-              height: 10,
+              width: 20,
+              height: 20,
               decoration: BoxDecoration(
                   color: IColors.black,
                   borderRadius: BorderRadius.circular(100)),
               child: Center(
                   child: Text(
-                '2',
+                '3',
                 style: Theme.of(context)
                     .textTheme
                     .labelLarge!
