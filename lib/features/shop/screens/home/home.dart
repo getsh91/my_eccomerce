@@ -31,16 +31,17 @@ class HomeScreen extends StatelessWidget {
                     icon: Iconsax.search_normal,
                     text: 'Search for products'),
                 const SizedBox(height: ISizes.spaceBtwSections),
-                const Padding(
-                  padding: EdgeInsets.only(left: ISizes.defaultSpace),
+                Padding(
+                  padding: const EdgeInsets.only(left: ISizes.defaultSpace),
                   child: Column(
                     children: [
                       ISelectionHeading(
                           title: 'Popular Categories',
                           showActionButton: false,
+                          onPressed: () {},
                           textColor: IColors.white),
-                      SizedBox(height: ISizes.spaceBtwItems),
-                      IHomeCatagories()
+                      const SizedBox(height: ISizes.spaceBtwItems),
+                      const IHomeCatagories()
                     ],
                   ),
                 )

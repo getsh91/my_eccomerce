@@ -64,6 +64,7 @@ class IProductCardVertical extends StatelessWidget {
               ],
             ),
           ),
+          const SizedBox(height: ISizes.spaceBtwItems / 2),
           Padding(
             padding: const EdgeInsets.only(left: ISizes.sm),
             child:
@@ -84,32 +85,36 @@ class IProductCardVertical extends StatelessWidget {
                       color: IColors.primary, size: ISizes.iconXs)
                 ],
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const IProductPriceText(
-                    price: '35',
-                  ),
-                  Container(
-                    decoration: const BoxDecoration(
-                        color: IColors.dark,
-                        borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(ISizes.cardRadiusMd),
-                            bottomRight:
-                                Radius.circular(ISizes.productImageRadius))),
-                    child: const SizedBox(
-                        height: ISizes.iconLg * 1.2,
-                        width: ISizes.iconLg * 1.2,
-                        child: Center(
-                          child: Icon(
-                            Iconsax.add,
-                            color: IColors.white,
-                          ),
-                        )),
-                  )
-                ],
-              )
             ]),
+          ),
+          const Spacer(),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              const Padding(
+                padding: EdgeInsets.only(left: ISizes.sm),
+                child: IProductPriceText(
+                  price: '35',
+                ),
+              ),
+              Container(
+                decoration: const BoxDecoration(
+                    color: IColors.dark,
+                    borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(ISizes.cardRadiusMd),
+                        bottomRight:
+                            Radius.circular(ISizes.productImageRadius))),
+                child: const SizedBox(
+                    height: ISizes.iconLg * 1.2,
+                    width: ISizes.iconLg * 1.2,
+                    child: Center(
+                      child: Icon(
+                        Iconsax.add,
+                        color: IColors.white,
+                      ),
+                    )),
+              )
+            ],
           )
         ]),
       ),

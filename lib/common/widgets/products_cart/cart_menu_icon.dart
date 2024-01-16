@@ -5,10 +5,10 @@ import 'package:t_store/utils/constants/colors.dart';
 class ICartCounterIcon extends StatelessWidget {
   const ICartCounterIcon({
     super.key,
-    required this.iconColor,
+    this.iconColor,
     required this.onPressed,
   });
-  final Color iconColor;
+  final Color? iconColor;
   final VoidCallback onPressed;
 
   @override

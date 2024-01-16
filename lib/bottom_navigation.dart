@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:get/get.dart';
+import 'package:t_store/features/shop/screens/store/store.dart';
 import './features/shop/screens/home/home.dart';
 
 class BottomNavigation extends StatelessWidget {
@@ -33,9 +34,7 @@ class BottomNavigationController extends GetxController {
   final Rx<int> _selectedIndex = 0.obs;
   final screen = [
     const HomeScreen(),
-    Container(
-      color: Colors.blue,
-    ),
+    const StoreScreen(),
     Container(
       color: Colors.green,
     ),
