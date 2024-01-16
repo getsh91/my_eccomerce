@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:t_store/common/widgets/custom_shapes/containers/primary_header_container.dart';
+import 'package:t_store/common/widgets/layouts/grid_layout.dart';
 import 'package:t_store/common/widgets/products_cart/cards/product_card_vertical.dart';
 import 'package:t_store/common/widgets/texts/section_heading.dart';
 import 'package:t_store/features/shop/screens/home/widgets/home_appbar.dart';
@@ -46,17 +47,20 @@ class HomeScreen extends StatelessWidget {
               ],
             ),
           ),
-          const Padding(
-            padding: EdgeInsets.all(ISizes.defaultSpace),
+          Padding(
+            padding: const EdgeInsets.all(ISizes.defaultSpace),
             child: Column(
               children: [
-                IPromoSlider(banners: [
+                const IPromoSlider(banners: [
                   IImages.promoBanner1,
                   IImages.promoBanner2,
                   IImages.promoBanner3
                 ]),
-                SizedBox(height: ISizes.spaceBtwSections),
-                IProductCardVertical()
+                const SizedBox(height: ISizes.spaceBtwSections),
+                IGridLayout(
+                  itemCount: 4,
+                  itemBuilder: (_, index) => const IProductCardVertical(),
+                )
               ],
             ),
           ),
