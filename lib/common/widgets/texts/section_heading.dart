@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class ISelectionHeading extends StatelessWidget {
-  const ISelectionHeading({
+class ISectionHeading extends StatelessWidget {
+  const ISectionHeading({
     super.key,
     this.textColor,
     required this.showActionButton,

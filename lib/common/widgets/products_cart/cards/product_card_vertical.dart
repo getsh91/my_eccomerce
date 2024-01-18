@@ -5,8 +5,10 @@ import 'package:t_store/common/widgets/custom_shapes/containers/circular_contain
 import 'package:t_store/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:t_store/common/widgets/icons/i_circular_icon.dart';
 import 'package:t_store/common/widgets/images/i_rounded_image.dart';
+import 'package:t_store/common/widgets/texts/i_brand_title_with_verified_icon.dart';
 import 'package:t_store/common/widgets/texts/product_title_text.dart';
 import 'package:t_store/common/widgets/texts/produt_price_text.dart';
+import 'package:t_store/common/widgets/texts/t_brand_title_text.dart';
 import 'package:t_store/utils/constants/colors.dart';
 import 'package:t_store/utils/constants/image_strings.dart';
 import 'package:t_store/utils/constants/sizes.dart';
@@ -65,26 +67,16 @@ class IProductCardVertical extends StatelessWidget {
             ),
           ),
           const SizedBox(height: ISizes.spaceBtwItems / 2),
-          Padding(
-            padding: const EdgeInsets.only(left: ISizes.sm),
+          const Padding(
+            padding: EdgeInsets.only(left: ISizes.sm),
             child:
                 Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-              const IProductTitleText(
+              IProductTitleText(
                 title: 'Green Nike Air Shoes',
                 smallSize: true,
               ),
-              const SizedBox(height: ISizes.spaceBtwItems / 2),
-              Row(
-                children: [
-                  Text('Nike',
-                      overflow: TextOverflow.ellipsis,
-                      maxLines: 1,
-                      style: Theme.of(context).textTheme.labelMedium),
-                  const SizedBox(width: ISizes.xs),
-                  const Icon(Iconsax.verify5,
-                      color: IColors.primary, size: ISizes.iconXs)
-                ],
-              ),
+              SizedBox(height: ISizes.spaceBtwItems / 2),
+              IBrandTitleWithVerifiedIcon(title: 'Nike'),
             ]),
           ),
           const Spacer(),

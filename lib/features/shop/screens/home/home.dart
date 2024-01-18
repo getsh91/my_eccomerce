@@ -35,7 +35,7 @@ class HomeScreen extends StatelessWidget {
                   padding: const EdgeInsets.only(left: ISizes.defaultSpace),
                   child: Column(
                     children: [
-                      ISelectionHeading(
+                      ISectionHeading(
                           title: 'Popular Categories',
                           showActionButton: false,
                           onPressed: () {},
