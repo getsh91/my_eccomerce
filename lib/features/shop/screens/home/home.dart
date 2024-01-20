@@ -41,7 +41,8 @@ class HomeScreen extends StatelessWidget {
                           onPressed: () {},
                           textColor: IColors.white),
                       const SizedBox(height: ISizes.spaceBtwItems),
-                      const IHomeCatagories()
+                      const IHomeCatagories(),
+                      const SizedBox(height: ISizes.spaceBtwSections),
                     ],
                   ),
                 )

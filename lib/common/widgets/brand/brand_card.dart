@@ -25,7 +25,7 @@ class IBrandCard extends StatelessWidget {
         backgroundColor: Colors.transparent,
         child: Row(children: [
           Flexible(
-            child: ICurcularImage(
+            child: ICircularImage(
                 image: IImages.clothIcon,
                 isNetwokImage: false,
                 backgroundColor: Colors.transparent,

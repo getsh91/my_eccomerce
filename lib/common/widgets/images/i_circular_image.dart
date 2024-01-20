@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:t_store/utils/constants/colors.dart';
-import 'package:t_store/utils/constants/image_strings.dart';
 import 'package:t_store/utils/constants/sizes.dart';
 import 'package:t_store/utils/helpers/helper_functions.dart';
 
-class ICurcularImage extends StatelessWidget {
-  const ICurcularImage({
+class ICircularImage extends StatelessWidget {
+  const ICircularImage({
     super.key,
     this.width = 56,
     this.height = 56,
@@ -32,12 +31,15 @@ class ICurcularImage extends StatelessWidget {
       height: 56,
       padding: const EdgeInsets.all(ISizes.sm),
       decoration: BoxDecoration(
-        color: dark ? IColors.black : IColors.white,
         borderRadius: BorderRadius.circular(100),
+        color: backgroundColor ?? (dark ? IColors.black : IColors.white),
       ),
       child: Image(
-        image: const AssetImage(IImages.clothIcon),
-        color: dark ? IColors.white : IColors.black,
+        image: isNetwokImage
+            ? NetworkImage(image)
+            : AssetImage(image) as ImageProvider,
+        fit: fit,
+        color: overlayColor,
       ),
     );
   }

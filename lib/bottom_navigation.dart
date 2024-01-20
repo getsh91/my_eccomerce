@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:get/get.dart';
+import 'package:t_store/features/personalization/screens/sittings/settings.dart';
 import 'package:t_store/features/shop/screens/store/store.dart';
 import 'package:t_store/features/shop/screens/wishlist/wishlist.dart';
 import './features/shop/screens/home/home.dart';
@@ -37,8 +38,6 @@ class BottomNavigationController extends GetxController {
     const HomeScreen(),
     const StoreScreen(),
     const FavoriteScreen(),
-    Container(
-      color: Colors.yellow,
-    ),
+    const SettingsScreen()
   ];
 }

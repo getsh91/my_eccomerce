@@ -68,4 +68,6 @@ class ITexts {
   // -- Home
   static const String homeAppbarTitle = "Good day for shopping";
   static const String homeAppbarSubTitle = "Taimoor Sikander";
+
+  // --Account Settings
 }
