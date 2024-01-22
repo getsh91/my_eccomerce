@@ -57,7 +57,7 @@ class IProductAttributes extends StatelessWidget {
               ),
               const IProductTitleText(
                 title:
-                    'The shoe typically features perforations on the toe box and sidewalls, promoting breathability and ventilation. It also includes a padded collar and tongue for added comfort and support. The lacing system allows for a secure and customizable fit.',
+                    'The shoe typically features perforations on the toe box and sidewalls, promoting ',
                 smallSize: true,
                 maxLines: 4,
               )
