@@ -4,7 +4,7 @@ class ISectionHeading extends StatelessWidget {
   const ISectionHeading({
     super.key,
     this.textColor,
-    required this.showActionButton,
+    this.showActionButton = true,
     required this.title,
     this.buttonTitle = 'view all',
     this.onPressed,
