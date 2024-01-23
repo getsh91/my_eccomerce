@@ -3,8 +3,8 @@ import 'package:t_store/utils/constants/colors.dart';
 import 'package:t_store/utils/constants/sizes.dart';
 import 'package:t_store/utils/helpers/helper_functions.dart';
 
-class IHorizotalImageText extends StatelessWidget {
-  const IHorizotalImageText({
+class IVerticalImageText extends StatelessWidget {
+  const IVerticalImageText({
     super.key,
     required this.image,
     required this.title,

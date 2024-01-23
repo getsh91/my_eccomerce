@@ -23,7 +23,7 @@ class IBillingPaymentSection extends StatelessWidget {
         Row(
           children: [
             IRoundedContainer(
-              width: 60,
+              width: 40,
               height: 35,
               backgroundColor: dark ? IColors.light : IColors.white,
               padding: const EdgeInsets.all(ISizes.sm),
