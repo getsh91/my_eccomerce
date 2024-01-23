@@ -31,9 +31,9 @@ class CheckoutScreen extends StatelessWidget {
               padding: const EdgeInsets.all(ISizes.defaultSpace),
               child: Column(
                 children: [
-                  Container(
+                  const SizedBox(
                       height: 300,
-                      child: const ICartItems(showAddRemoveButton: false)),
+                      child: ICartItems(showAddRemoveButton: false)),
                   const SizedBox(height: ISizes.spaceBtwSections),
                   const ICouponCode(),
                   const SizedBox(height: ISizes.spaceBtwSections),

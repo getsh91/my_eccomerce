@@ -12,7 +12,7 @@ class OrderScreen extends StatelessWidget {
       appBar: IAppBar(
           title: Text('My Orders',
               style: Theme.of(context).textTheme.headlineSmall)),
-      body: Padding(
+      body: const Padding(
         padding: EdgeInsets.all(ISizes.defaultSpace),
         child: IOrderListItems(),
       ),
