@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:t_store/bindings/general_binding.dart';
 import 'package:t_store/utils/constants/colors.dart';
-import 'package:t_store/utils/constants/text_strings.dart';
 import 'package:t_store/utils/theme/theme.dart';
 
 class App extends StatelessWidget {
@@ -14,6 +14,7 @@ class App extends StatelessWidget {
         theme: IAppTheme.lightTheme,
         darkTheme: IAppTheme.darkTheme,
         debugShowCheckedModeBanner: false,
+        initialBinding: GeneralBinding(),
         home: const Scaffold(
           backgroundColor: IColors.primary,
           body: Center(

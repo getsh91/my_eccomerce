@@ -1,8 +1,8 @@
 /// Exception class for handling various platform-related errors.
-class TPlatformException implements Exception {
+class IPlatformException implements Exception {
   final String code;
 
-  TPlatformException(this.code);
+  IPlatformException(this.code);
 
   String get message {
     switch (code) {
@@ -34,7 +34,7 @@ class TPlatformException implements Exception {
         return 'Invalid verification ID. Please request a new verification code.';
       case 'quota-exceeded':
         return 'Quota exceeded. Please try again later.';
-    // Add more cases as needed...
+      // Add more cases as needed...
       default:
         return 'An unexpected platform error occurred. Please try again.';
     }

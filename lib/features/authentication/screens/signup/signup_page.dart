@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:get/get_utils/get_utils.dart';
 import 'package:t_store/common/widgets/login_signup/form_divider.dart';
 import 'package:t_store/common/widgets/login_signup/social_buttons.dart';
