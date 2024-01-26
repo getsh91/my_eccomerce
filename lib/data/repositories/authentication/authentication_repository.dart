@@ -21,6 +21,7 @@ class AuthenticationRepository extends GetxController {
   @override
   void onReady() {
     FlutterNativeSplash.remove();
+    //redirect to appropriate screen
     screenRedirect();
   }
 
@@ -37,7 +38,7 @@ class AuthenticationRepository extends GetxController {
       //local storage
       deviceStorage.writeIfNull('IsFirstTime', true);
       //check if it is first time launch app
-      deviceStorage.read('IsFistTime') != true
+      deviceStorage.read('IsFirstTime') != true
           ? Get.offAll(const LoginPage())
           : Get.offAll(const OnBoardingScreen());
     }

@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:t_store/common/widgets/success_screen/success_screen.dart';
 import 'package:t_store/data/repositories/authentication/authentication_repository.dart';
 import 'package:t_store/features/authentication/controllers/signup/varify_email_controller.dart';
-import 'package:t_store/features/authentication/screens/login/login_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:t_store/utils/constants/sizes.dart';
 import 'package:t_store/utils/constants/image_strings.dart';
