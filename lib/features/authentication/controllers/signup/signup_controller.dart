@@ -28,7 +28,7 @@ class SignUpController extends GetxController {
     try {
       //start loading
       IFullScreenLoader.openLoadingDialog(
-          'We are processing your information', IImages.acerlogo);
+          'We are processing your information..', IImages.decorAnimation);
       //check internet connection
       final isConnected = await NetworkManager.instance.isConnected();
       if (!isConnected) {
@@ -72,7 +72,9 @@ class SignUpController extends GetxController {
           title: 'Congratulation',
           message: 'Your acount has been created!Verify email to continue.');
       //move to varification screen
-      Get.to(const VerifyEmailPage());
+      Get.to(VerifyEmailPage(
+        email: email.text.trim(),
+      ));
     } catch (e) {
       IFullScreenLoader.stopLoading();
       //error handling

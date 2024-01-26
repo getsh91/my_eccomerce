@@ -30,7 +30,11 @@ class IImages {
       "assets/icons/categories/icons8-sparkling-diamond-64.png";
   static const String electronicsIcon =
       "assets/icons/categories/icons8-smartphone-64.png";
-
+//--lottie animation
+  static const String successfulyRegisterAnimation =
+      "assets/images/animations/72462-check-register.json";
+  static const String decorAnimation =
+      "assets/images/animations/141594-animation-of-docer.json";
   // -- Brand Icons
   static const String nikeLogo = "assets/icons/brands/nike.png";
   static const String adidasLogo = "assets/icons/brands/adidas-logo.png";

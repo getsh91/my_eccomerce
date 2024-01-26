@@ -15,10 +15,12 @@ class ILoginHeader extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Image(
-            height: 150,
-            image:
-                AssetImage(dark ? IImages.lightAppLogo : IImages.darkAppLogo)),
+        Center(
+          child: Image(
+              height: 150,
+              image: AssetImage(
+                  dark ? IImages.lightAppLogo : IImages.darkAppLogo)),
+        ),
         Text(ITexts.loginTitle,
             style: Theme.of(context).textTheme.headlineMedium),
         const SizedBox(height: ISizes.sm),
