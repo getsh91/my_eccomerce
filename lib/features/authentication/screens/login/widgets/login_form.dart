@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:t_store/bottom_navigation.dart';
 import 'package:t_store/features/authentication/controllers/login/login_controller.dart';
 import 'package:t_store/features/authentication/screens/password_configuration/forget_password.dart';
 import 'package:t_store/features/authentication/screens/signup/signup_page.dart';

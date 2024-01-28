@@ -22,6 +22,7 @@ class LoginController extends GetxController {
     super.onInit();
   }
 
+  //signin using email and password
   Future<void> emailAndPasswordLogin() async {
     try {
       //start loading
@@ -46,6 +47,33 @@ class LoginController extends GetxController {
       //login user using email and password
       final userCredential = await AuthenticationRepository.instance
           .loginWithEmailAndPassword(email.text.trim(), password.text.trim());
+      //remove loading
+      IFullScreenLoader.stopLoading();
+      //redirect
+      AuthenticationRepository.instance.screenRedirect();
+    } catch (e) {
+      //remove loading
+      IFullScreenLoader.stopLoading();
+      //show error
+      ILoaders.errorSnackBar(title: 'Error', message: e.toString());
+    }
+  }
+
+  //signin using google
+  Future<void> googleLogin() async {
+    try {
+      //start loading
+      IFullScreenLoader.openLoadingDialog(
+          'Logging you in..', IImages.decorAnimation);
+      //check internet connection
+      final isConnected = await NetworkManager.instance.isConnected();
+      if (!isConnected) {
+        IFullScreenLoader.stopLoading();
+        return;
+      }
+      //login user using google
+      final userCredential =
+          await AuthenticationRepository.instance.signinWithGoogle();
       //remove loading
       IFullScreenLoader.stopLoading();
       //redirect
