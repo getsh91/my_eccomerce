@@ -6,16 +6,20 @@ import 'package:t_store/common/widgets/custom_shapes/containers/primary_header_c
 import 'package:t_store/common/widgets/list_ties/setting_menu_tile.dart';
 import 'package:t_store/common/widgets/list_ties/user_profile_tile.dart';
 import 'package:t_store/common/widgets/texts/section_heading.dart';
+import 'package:t_store/features/authentication/controllers/login/login_controller.dart';
 import 'package:t_store/features/personalization/screens/address/address.dart';
 import 'package:t_store/features/shop/screens/order/order.dart';
 import 'package:t_store/utils/constants/colors.dart';
 import 'package:t_store/utils/constants/sizes.dart';
+import 'package:t_store/utils/helpers/helper_functions.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(LoginController());
+    final dark = IHelperFunctions.isDarkMode(context);
     return Scaffold(
       body: SingleChildScrollView(
           child: Column(
@@ -115,6 +119,15 @@ class SettingsScreen extends StatelessWidget {
                     onChanged: (value) {},
                   ),
                   onTap: () {}),
+              Divider(),
+              TextButton(
+                  onPressed: () {
+                    controller.logout();
+                  },
+                  child: Text('Logout',
+                      style: TextStyle(
+                          fontSize: ISizes.fontSizeMd,
+                          color: dark ? IColors.primary : IColors.black)))
             ]),
           )
         ],
