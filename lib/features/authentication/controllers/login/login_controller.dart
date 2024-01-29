@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:t_store/data/repositories/authentication/authentication_repository.dart';
+import 'package:t_store/features/personalization/controllers/user_controller.dart';
 import 'package:t_store/utils/constants/image_strings.dart';
 import 'package:t_store/utils/helpers/network_manager.dart';
 import 'package:t_store/utils/popups/full_screen_loader.dart';
@@ -14,6 +15,7 @@ class LoginController extends GetxController {
   final rememberMe = false.obs;
   final localStorage = GetStorage();
   GlobalKey<FormState> loginFormKey = GlobalKey<FormState>();
+  final userController = Get.put(UserController());
 
   @override
   void onInit() {
@@ -74,7 +76,35 @@ class LoginController extends GetxController {
       //login user using google
       final userCredential =
           await AuthenticationRepository.instance.signinWithGoogle();
+      //save user data in firestore
+      await userController.saveUserRecord(userCredential);
+      //remove loader
+      IFullScreenLoader.stopLoading();
+      //redirect
+      AuthenticationRepository.instance.screenRedirect();
+    } catch (e) {
       //remove loading
+      IFullScreenLoader.stopLoading();
+      //show error
+      ILoaders.errorSnackBar(title: 'Error', message: e.toString());
+    }
+  }
+
+  //log out
+  Future<void> logout() async {
+    try {
+      //start loading
+      IFullScreenLoader.openLoadingDialog(
+          'Logging you out..', IImages.decorAnimation);
+      //check internet connection
+      final isConnected = await NetworkManager.instance.isConnected();
+      if (!isConnected) {
+        IFullScreenLoader.stopLoading();
+        return;
+      }
+      //logout user
+      await AuthenticationRepository.instance.logout();
+      //remove loader
       IFullScreenLoader.stopLoading();
       //redirect
       AuthenticationRepository.instance.screenRedirect();
