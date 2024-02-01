@@ -119,7 +119,7 @@ class SettingsScreen extends StatelessWidget {
                     onChanged: (value) {},
                   ),
                   onTap: () {}),
-              Divider(),
+              const Divider(),
               TextButton(
                   onPressed: () {
                     controller.logout();
