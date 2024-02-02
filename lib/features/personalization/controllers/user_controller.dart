@@ -7,6 +7,29 @@ import 'package:t_store/utils/popups/loader.dart';
 class UserController extends GetxController {
   static UserController get instance => Get.find();
 
+  Rx<UserModel> user = UserModel.empty().obs;
+  final userRepository = Get.put(UserRepository());
+
+  @override
+  void onInit() {
+    super.onInit();
+    fetchUserData();
+  }
+
+  //fetch user data
+  Future<void> fetchUserData() async {
+    try {
+      final user = await userRepository.fetchUserData();
+      this.user(user);
+    } catch (e) {
+      user(UserModel.empty());
+      ILoaders.warningSnackBar(
+          title: 'Data not found',
+          message:
+              'Something went wrong while fetching your information.you can re-save your data in your profile.');
+    }
+  }
+
   Future<void> saveUserRecord(UserCredential? userCredentials) async {
     try {
       if (userCredentials != null) {

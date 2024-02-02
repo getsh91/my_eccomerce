@@ -20,6 +20,9 @@ class AuthenticationRepository extends GetxController {
 
   final deviceStorage = GetStorage();
 
+  //get authenticated user data
+  User? get authUser => auth.currentUser;
+
   @override
   void onReady() {
     FlutterNativeSplash.remove();

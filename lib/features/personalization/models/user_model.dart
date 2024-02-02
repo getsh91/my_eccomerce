@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:t_store/utils/formatters/formatter.dart';
 
 class UserModel {
@@ -49,6 +50,7 @@ class UserModel {
     );
   }
 
+  //convert user model to json
   Map<String, dynamic> toJson() {
     return {
       'FirstName': firstName,
@@ -61,19 +63,20 @@ class UserModel {
   }
 
   //factory method to create a userModel from firebase document snapshot
-  // factory UserModel.fromSnapshot(
-  //     DocumentSnapshot<Map<String, dynamic>> document) {
-  //   if (document.data() != null) {
-  //     final data = document.data()!;
-  //     return UserModel(
-  //       id: document.id,
-  //       firstName: data['FirstName'] ?? '',
-  //       lastName: data['LastName'] ?? '',
-  //       email: data['Email'] ?? '',
-  //       phoneNumber: data['PhoneNumber'] ?? '',
-  //       userName: data['UserName'] ?? '',
-  //       profilePicture: data['ProfilePicture'] ?? ''
-  //     );
-  //   }
-  // }
+  factory UserModel.fromSnapshot(
+      DocumentSnapshot<Map<String, dynamic>> document) {
+    if (document.data() != null) {
+      final data = document.data()!;
+      return UserModel(
+          id: document.id,
+          firstName: data['FirstName'] ?? '',
+          lastName: data['LastName'] ?? '',
+          email: data['Email'] ?? '',
+          phoneNumber: data['PhoneNumber'] ?? '',
+          userName: data['UserName'] ?? '',
+          profilePicture: data['ProfilePicture'] ?? '');
+    } else {
+      return UserModel.empty();
+    }
+  }
 }
