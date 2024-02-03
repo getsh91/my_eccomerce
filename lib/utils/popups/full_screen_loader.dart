@@ -31,4 +31,7 @@ class IFullScreenLoader {
   static stopLoading() {
     Navigator.of(Get.overlayContext!).pop(); //to close dialog
   }
+
+  static void successSnackBar(
+      {required String title, required String message}) {}
 }

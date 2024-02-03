@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:t_store/common/widgets/appbar/appbar.dart';
 import 'package:t_store/common/widgets/images/i_circular_image.dart';
 import 'package:t_store/common/widgets/texts/section_heading.dart';
 import 'package:t_store/features/personalization/controllers/user_controller.dart';
+import 'package:t_store/features/personalization/screens/profile/widgets/change_name.dart';
 import 'package:t_store/features/personalization/screens/profile/widgets/profile_menu.dart';
 import 'package:t_store/utils/constants/image_strings.dart';
 import 'package:t_store/utils/constants/sizes.dart';
@@ -40,11 +42,11 @@ class ProfileScreen extends StatelessWidget {
                   showActionButton: false, title: 'Profile Information'),
               const SizedBox(height: ISizes.spaceBtwItems),
               IProfileMenu(
-                title: 'Name',
-                value: controller.user.value.fullName,
-                onPressed: () {},
-                icon: Iconsax.copy,
-              ),
+                  title: 'Name',
+                  value: controller.user.value.fullName,
+                  onPressed: () {
+                    Get.to(const ChangeName());
+                  }),
               IProfileMenu(
                 title: 'UserName',
                 value: controller.user.value.userName,
@@ -59,6 +61,7 @@ class ProfileScreen extends StatelessWidget {
               IProfileMenu(
                 title: 'User_Id',
                 value: controller.user.value.id,
+                icon: Iconsax.copy,
                 onPressed: () {},
               ),
               IProfileMenu(
@@ -85,7 +88,9 @@ class ProfileScreen extends StatelessWidget {
               const SizedBox(height: ISizes.spaceBtwItems),
               Center(
                 child: TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    controller.deleteAccountWarningPopup();
+                  },
                   child: const Text(
                     'Close Account',
                     style: TextStyle(color: Colors.red),

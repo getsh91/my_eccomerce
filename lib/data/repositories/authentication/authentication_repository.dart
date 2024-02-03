@@ -6,6 +6,7 @@ import 'package:get_storage/get_storage.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:t_store/bottom_navigation.dart';
+import 'package:t_store/data/repositories/user/user_repository.dart';
 import 'package:t_store/features/authentication/screens/login/login_page.dart';
 import 'package:t_store/features/authentication/screens/onboarding/onboarding.dart';
 import 'package:t_store/features/authentication/screens/signup/widgets/verfiy_email.dart';
@@ -124,10 +125,11 @@ class AuthenticationRepository extends GetxController {
   //signin using google
   Future<UserCredential?> signinWithGoogle() async {
     try {
-      final GoogleSignInAccount? userAccount =
-          await GoogleSignIn().signIn(); //get user account
+      //get user account
+      final GoogleSignInAccount? userAccount = await GoogleSignIn().signIn();
+      //get user auth
       final GoogleSignInAuthentication? googleAuth =
-          await userAccount?.authentication; //get user auth
+          await userAccount?.authentication;
       //create new credencial
       final credential = GoogleAuthProvider.credential(
         accessToken: googleAuth?.accessToken,
@@ -146,6 +148,44 @@ class AuthenticationRepository extends GetxController {
     } catch (e) {
       if (kDebugMode) print('something went wrong $e');
       return null;
+    }
+  }
+
+  //delete user account
+  Future<void> deleteAccount() async {
+    try {
+      await UserRepository.instance.deleteUserRecord(auth.currentUser!.uid);
+      await auth.currentUser?.delete();
+    } on FirebaseAuthException catch (e) {
+      throw IFirebaseAuthException(e.code).message;
+    } on FirebaseException catch (e) {
+      throw IFirebaseException(e.code).message;
+    } on FormatException catch (_) {
+      throw const IFormatException();
+    } on PlatformException catch (e) {
+      throw IPlatformException(e.code).message;
+    } catch (e) {
+      throw 'Something went wrong. Please try again.';
+    }
+  }
+
+  //re-authenticate user using email and password
+  Future<void> reAuthenticateWithEmailAndPassword(
+      String email, String password) async {
+    try {
+      AuthCredential credential =
+          EmailAuthProvider.credential(email: email, password: password);
+      await auth.currentUser?.reauthenticateWithCredential(credential);
+    } on FirebaseAuthException catch (e) {
+      throw IFirebaseAuthException(e.code).message;
+    } on FirebaseException catch (e) {
+      throw IFirebaseException(e.code).message;
+    } on FormatException catch (_) {
+      throw const IFormatException();
+    } on PlatformException catch (e) {
+      throw IPlatformException(e.code).message;
+    } catch (e) {
+      throw 'Something went wrong. Please try again.';
     }
   }
 

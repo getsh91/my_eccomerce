@@ -8,7 +8,7 @@ import 'package:t_store/utils/exceptions/format_exceptions.dart';
 import 'package:t_store/utils/exceptions/platform_exceptions.dart';
 
 class UserRepository extends GetxController {
-  static UserRepository get to => Get.find();
+  static UserRepository get instance => Get.find();
 
   final FirebaseFirestore db = FirebaseFirestore.instance;
 
@@ -71,7 +71,10 @@ class UserRepository extends GetxController {
   //function update any fields in specific user collection
   Future<void> updateSingleField(Map<String, dynamic> json) async {
     try {
-      await db.collection('Users').doc().update(json);
+      await db
+          .collection('Users')
+          .doc(AuthenticationRepository.instance.authUser?.uid)
+          .update(json);
     } on FirebaseException catch (e) {
       throw IFirebaseException(e.code).message;
     } on FormatException catch (_) {
