@@ -8,6 +8,7 @@ import 'package:t_store/common/widgets/list_ties/user_profile_tile.dart';
 import 'package:t_store/common/widgets/texts/section_heading.dart';
 import 'package:t_store/features/authentication/controllers/login/login_controller.dart';
 import 'package:t_store/features/personalization/screens/address/address.dart';
+import 'package:t_store/features/personalization/screens/profile/profile.dart';
 import 'package:t_store/features/shop/screens/order/order.dart';
 import 'package:t_store/utils/constants/colors.dart';
 import 'package:t_store/utils/constants/sizes.dart';
@@ -34,7 +35,9 @@ class SettingsScreen extends StatelessWidget {
                         .headlineMedium!
                         .apply(color: IColors.white)),
               ),
-              const IUserProfileTile(),
+              IUserProfileTile(onPressed: () {
+                Get.to(const ProfileScreen());
+              }),
               const SizedBox(height: ISizes.spaceBtwSections),
             ],
           )),

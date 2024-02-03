@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:t_store/common/widgets/appbar/appbar.dart';
 import 'package:t_store/common/widgets/products/cart/cart_menu_icon.dart';
+import 'package:t_store/common/widgets/shimmer.dart';
 import 'package:t_store/features/personalization/controllers/user_controller.dart';
 import 'package:t_store/utils/constants/colors.dart';
 import 'package:t_store/utils/constants/text_strings.dart';
@@ -23,13 +24,21 @@ class IHomeAppBar extends StatelessWidget {
                   .textTheme
                   .labelMedium!
                   .apply(color: IColors.white)),
-          Obx(
-            () => Text(controller.user.value.fullName,
-                style: Theme.of(context)
-                    .textTheme
-                    .headlineSmall!
-                    .apply(color: IColors.white)),
-          )
+          Obx(() {
+            if (controller.profileLoading.value) {
+              //display shimmer loader while user profile is being loaded
+              return const IShimmerEffect(
+                height: 15,
+                width: 80,
+              );
+            } else {
+              return Text(controller.user.value.fullName,
+                  style: Theme.of(context)
+                      .textTheme
+                      .headlineSmall!
+                      .apply(color: IColors.white));
+            }
+          })
         ],
       ),
       actions: [

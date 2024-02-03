@@ -9,6 +9,7 @@ class UserController extends GetxController {
 
   Rx<UserModel> user = UserModel.empty().obs;
   final userRepository = Get.put(UserRepository());
+  final profileLoading = false.obs;
 
   @override
   void onInit() {
@@ -19,14 +20,13 @@ class UserController extends GetxController {
   //fetch user data
   Future<void> fetchUserData() async {
     try {
+      profileLoading.value = true;
       final user = await userRepository.fetchUserData();
       this.user(user);
     } catch (e) {
       user(UserModel.empty());
-      ILoaders.warningSnackBar(
-          title: 'Data not found',
-          message:
-              'Something went wrong while fetching your information.you can re-save your data in your profile.');
+    } finally {
+      profileLoading.value = false;
     }
   }
 
