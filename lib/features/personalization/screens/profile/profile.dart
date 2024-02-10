@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:t_store/common/widgets/appbar/appbar.dart';
 import 'package:t_store/common/widgets/images/i_circular_image.dart';
+import 'package:t_store/common/widgets/shimmer.dart';
 import 'package:t_store/common/widgets/texts/section_heading.dart';
 import 'package:t_store/features/personalization/controllers/user_controller.dart';
 import 'package:t_store/features/personalization/screens/profile/widgets/change_name.dart';
@@ -29,10 +30,24 @@ class ProfileScreen extends StatelessWidget {
               SizedBox(
                   width: double.infinity,
                   child: Column(children: [
-                    const ICircularImage(
-                        image: IImages.user, width: 80, height: 80),
+                    Obx(() {
+                      final networkImage = controller.user.value.profilePicture;
+                      final image =
+                          networkImage.isNotEmpty ? networkImage : IImages.user;
+                      return controller.imageUploading.value
+                          ? const IShimmerEffect(
+                              height: 80, width: 80, radius: 80)
+                          : ICircularImage(
+                              image: image,
+                              width: 80,
+                              height: 80,
+                              isNetwokImage: networkImage.isNotEmpty,
+                            );
+                    }),
                     TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          controller.uploadProfileImage();
+                        },
                         child: const Text('Change Profile Picture'))
                   ])),
               const SizedBox(height: ISizes.spaceBtwItems / 2),
